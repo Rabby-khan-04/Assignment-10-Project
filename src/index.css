@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+.active {
+  @apply text-primary;
+}
+.menu__item {
+  @apply text-xl font-semibold;
+}
+
+.banner__section {
+  background: url("./assets/images/bg-header.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @apply py-40;
+}
