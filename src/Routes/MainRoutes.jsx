@@ -5,6 +5,7 @@ import Blog from "../Pages/Blog/Blog";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ChefDetails from "../Pages/ChefDetails/ChefDetails";
+import { loadChefsDetails } from "../utilities/loader";
 
 export const router = createBrowserRouter([
   {
@@ -31,8 +32,7 @@ export const router = createBrowserRouter([
       {
         path: "/recipes/:id",
         element: <ChefDetails />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/recipes/${params.id}`),
+        loader: ({ params }) => loadChefsDetails(params.id),
       },
     ],
   },
