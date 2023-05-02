@@ -12,7 +12,7 @@ const MainLayouts = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
+      <footer className="bg-[#0a0a0a]">
         <Footer />
       </footer>
     </>

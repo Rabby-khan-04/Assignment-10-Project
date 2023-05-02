@@ -10,7 +10,7 @@ const Home = () => {
           <div className="max-w-3xl space-y-5">
             <h2 className="text-6xl text-white font-bold leading-tight">
               Experience the Joy of{" "}
-              <span className="text-primary">Italian Cuisine</span>: Start
+              <span className="text-primary">Italian Cuisine:</span> Start
               Cooking Today
             </h2>
             <p className="text-base text-white max-w-xl">
