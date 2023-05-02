@@ -14,9 +14,10 @@
 }
 
 .banner__section {
-  background: url("./assets/images/bg-header.png");
+  background: url("./assets/images/bg-header.png"), rgba(0, 0, 0, 0.45);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-blend-mode: multiply;
   @apply py-40;
 }
