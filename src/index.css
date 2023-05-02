@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container {
-  @apply max-w-7xl mx-auto;
+  @apply max-w-7xl mx-auto px-4 lg:px-0;
 }
 
 .active {
@@ -17,6 +17,7 @@
   background: url("./assets/images/bg-header.png"), rgba(0, 0, 0, 0.45);
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
   @apply py-40;

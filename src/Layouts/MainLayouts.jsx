@@ -6,7 +6,7 @@ import Footer from "../Pages/Shared/Footer/Footer";
 const MainLayouts = () => {
   return (
     <>
-      <header className="sticky top-0 bg-black">
+      <header className="sticky top-0 bg-black z-20">
         <Header />
       </header>
       <main>

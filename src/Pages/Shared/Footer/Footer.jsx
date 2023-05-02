@@ -7,6 +7,7 @@ import {
   FaRegEnvelope,
   FaTwitter,
 } from "react-icons/fa";
+import { IoMdArrowDropleft } from "react-icons/io";
 
 const Footer = () => {
   return (
@@ -30,7 +31,10 @@ const Footer = () => {
         </p>
       </div>
       <div className="space-y-4">
-        <h3 className="text-2xl font-bold">Contact Us</h3>
+        <div className="flex items-center">
+          <IoMdArrowDropleft className="text-2xl text-primary" />
+          <h3 className="text-2xl font-bold">Contact Us</h3>
+        </div>
         <div className="h-0.5 w-20 bg-primary mt-3 mb-5"></div>
         <div className="hover:text-primary">
           <div className="flex items-center gap-3">
@@ -48,7 +52,10 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <h3 className="text-2xl font-bold">Quick Links</h3>
+        <div className="flex items-center">
+          <IoMdArrowDropleft className="text-2xl text-primary" />
+          <h3 className="text-2xl font-bold">Quick Links</h3>
+        </div>
         <div className="h-0.5 w-20 bg-primary mt-3 mb-5"></div>
         <ul className="space-y-2">
           <li>Home</li>
@@ -58,7 +65,10 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <h3 className="text-2xl font-bold">Social Links</h3>
+        <div className="flex items-center">
+          <IoMdArrowDropleft className="text-2xl text-primary" />
+          <h3 className="text-2xl font-bold">Social Links</h3>
+        </div>
         <div className="h-0.5 w-20 bg-primary mt-3 mb-5"></div>
         <div className="flex items-center gap-4">
           <FaFacebookF className="text-xl text-white hover:text-primary" />
