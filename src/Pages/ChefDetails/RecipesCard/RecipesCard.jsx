@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { addToDB, getItemFromDB } from "../../../utilities/DBHandler";
 
 const RecipesCard = ({ recipe }) => {
-  const { name, rating, image, ingredients, cooking_method } = recipe;
+  const { id, name, rating, image, ingredients, cooking_method } = recipe;
+  const [favourite, setFavourite] = useState(false);
+  const [favouriteItem, setFavouriteItem] = useState([]);
+
+  const handleAddToFav = (id) => {
+    addToDB(id);
+    const storedItem = getItemFromDB();
+    setFavouriteItem(storedItem);
+  };
+
+  useEffect(() => {
+    const exist = favouriteItem.find((item) => item === id);
+    if (exist) {
+      setFavourite(true);
+    } else {
+      setFavourite(false);
+    }
+  }, [favouriteItem]);
 
   return (
     <div className="group border border-[#a1a1a149] p-4 rounded-lg">
@@ -32,12 +50,15 @@ const RecipesCard = ({ recipe }) => {
             value={rating}
             readOnly
           />
-          <button>
-            <FaRegHeart className="text-xl text-primary" />
-          </button>
-          <button>
-            <FaHeart className="text-xl text-primary" />
-          </button>
+          {favourite ? (
+            <button disabled={favourite}>
+              <FaHeart className="text-xl text-primary" />
+            </button>
+          ) : (
+            <button onClick={() => handleAddToFav(id)}>
+              <FaRegHeart className="text-xl text-primary" />
+            </button>
+          )}
         </div>
       </div>
     </div>
