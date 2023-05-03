@@ -32,8 +32,12 @@ const RecipesCard = ({ recipe }) => {
             value={rating}
             readOnly
           />
-          <FaRegHeart className="text-xl text-primary" />
-          <FaHeart className="text-xl text-primary" />
+          <button>
+            <FaRegHeart className="text-xl text-primary" />
+          </button>
+          <button>
+            <FaHeart className="text-xl text-primary" />
+          </button>
         </div>
       </div>
     </div>

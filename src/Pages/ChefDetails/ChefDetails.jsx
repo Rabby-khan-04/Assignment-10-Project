@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import "./ChefDetails.css";
 import { IoMdArrowDropleft } from "react-icons/io";
 import {
@@ -22,6 +22,12 @@ const ChefDetails = () => {
     likes,
     short_bio,
   } = chef;
+
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate(-1);
+  };
 
   return (
     <>
@@ -58,6 +64,12 @@ const ChefDetails = () => {
                 <p className="text-xl font-semibold">{likes} Likes</p>
               </div>
             </div>
+            <button
+              onClick={handleNavigation}
+              className="btn btn-primary text-base"
+            >
+              Back To Home
+            </button>
           </div>
           <div className="col-span-2">
             <img
