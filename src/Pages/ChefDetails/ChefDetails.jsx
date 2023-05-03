@@ -8,6 +8,7 @@ import {
   FaRegFileAlt,
   FaThumbsUp,
 } from "react-icons/fa";
+import RecipesCard from "./RecipesCard/RecipesCard";
 
 const ChefDetails = () => {
   const { recipes, chef } = useLoaderData();
@@ -64,6 +65,21 @@ const ChefDetails = () => {
               className="block rounded-lg border-2 border-primary"
               alt=""
             />
+          </div>
+        </div>
+      </section>
+      <section className="py-20">
+        <div className="container">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold uppercase">
+              Most Populer Recipes
+            </h2>
+            <div className="h-0.5 w-20 bg-primary my-5 mx-auto"></div>
+          </div>
+          <div className="pt-12 grid grid-cols-3 gap-8">
+            {recipes.map((recipe) => (
+              <RecipesCard key={recipe.id} recipe={recipe} />
+            ))}
           </div>
         </div>
       </section>
