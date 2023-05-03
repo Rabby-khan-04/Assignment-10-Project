@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useNavigation } from "react-router-dom";
 import "./ChefDetails.css";
 import { IoMdArrowDropleft } from "react-icons/io";
 import {
@@ -9,6 +9,7 @@ import {
   FaThumbsUp,
 } from "react-icons/fa";
 import RecipesCard from "./RecipesCard/RecipesCard";
+import Spinner from "../Shared/Spinner/Spinner";
 
 const ChefDetails = () => {
   const { recipes, chef } = useLoaderData();
@@ -28,6 +29,14 @@ const ChefDetails = () => {
   const handleNavigation = () => {
     navigate(-1);
   };
+
+  const navigation = useNavigation();
+  console.log(navigation);
+
+  if (navigation.state === "loading") {
+    console.log("From Loader", navigation.state);
+    return <Spinner />;
+  }
 
   return (
     <>

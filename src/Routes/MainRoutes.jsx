@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ChefDetails from "../Pages/ChefDetails/ChefDetails";
 import { loadChefsDetails } from "../utilities/loader";
+import Spinner from "../Pages/Shared/Spinner/Spinner";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
         path: "/recipes/:id",
         element: <ChefDetails />,
         loader: ({ params }) => loadChefsDetails(params.id),
+      },
+      {
+        path: "spinner",
+        element: <Spinner />,
       },
     ],
   },

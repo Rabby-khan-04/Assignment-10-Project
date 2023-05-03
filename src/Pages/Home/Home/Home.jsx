@@ -1,8 +1,9 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import ChefCard from "../ChefCard/ChefCard";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
+import Spinner from "../../Shared/Spinner/Spinner";
 
 const Home = () => {
   const chefs = useLoaderData();
@@ -56,6 +57,12 @@ const Home = () => {
       },
     ]
   );
+
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <Spinner />;
+  }
 
   return (
     <>
