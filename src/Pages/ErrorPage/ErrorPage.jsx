@@ -14,7 +14,9 @@ const ErrorPage = () => {
           <span className="text-primary ">{error.status}</span>{" "}
           {error.statusText}
         </p>
-        <img src={dog} alt="" />
+        <div className="p-4 border border-[#9e9e9e3e]">
+          <img src={dog} alt="" />
+        </div>
         <p className="text-2xl font-semibold">
           Looks like this page went on vacation
         </p>

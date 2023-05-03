@@ -1,7 +1,13 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const goToLoginPage = () => {
+    navigate("/login");
+  };
+
   return (
     <nav className="navbar container py-4">
       <div className="navbar-start">
@@ -35,7 +41,9 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="hidden lg:block">
-          <a className="btn btn-primary">Login Now</a>
+          <button onClick={goToLoginPage} className="btn btn-primary">
+            Login Now
+          </button>
         </div>
       </div>
       <div className="dropdown dropdown-end">
