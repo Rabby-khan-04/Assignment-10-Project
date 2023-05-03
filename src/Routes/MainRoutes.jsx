@@ -6,12 +6,13 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ChefDetails from "../Pages/ChefDetails/ChefDetails";
 import { loadChefsDetails } from "../utilities/loader";
-import Spinner from "../Pages/Shared/Spinner/Spinner";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -34,10 +35,6 @@ export const router = createBrowserRouter([
         path: "/recipes/:id",
         element: <ChefDetails />,
         loader: ({ params }) => loadChefsDetails(params.id),
-      },
-      {
-        path: "spinner",
-        element: <Spinner />,
       },
     ],
   },
