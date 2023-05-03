@@ -1,0 +1,7 @@
+.chef__banner {
+  background-image: url("../../assets/images/bg-pattern.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
+  @apply py-28;
+}

@@ -86,7 +86,7 @@ const Home = () => {
       <section className="py-20">
         <div className="container">
           <div className="text-center">
-            <h2 className="text-4xl font-bold uppercase">Our best chef</h2>
+            <h2 className="text-4xl font-bold uppercase">Our best chefs</h2>
             <div className="h-0.5 w-20 bg-primary my-5 mx-auto"></div>
             <p className="max-w-3xl text-base mx-auto">
               Meet our best Italian chefs! Discover the culinary talents behind

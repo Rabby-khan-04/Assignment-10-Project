@@ -1,5 +1,5 @@
 import React from "react";
-import { FaThumbsUp } from "react-icons/fa";
+import { FaRegFileAlt, FaThumbsUp } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const ChefCard = ({ chef }) => {
@@ -11,7 +11,6 @@ const ChefCard = ({ chef }) => {
     years_of_experience,
     number_of_recipes,
     likes,
-    short_bio,
   } = chef;
 
   const handleVeiwRecipes = () => {
@@ -31,11 +30,12 @@ const ChefCard = ({ chef }) => {
           {chef_name}
         </h2>
         <p className="text-xl mb-2">Experience: {years_of_experience} years</p>
-        <p className="text-xl mb-2">
-          Have over {number_of_recipes} recipes to choose from.
-        </p>
+        <div className="flex items-center gap-2 mb-1">
+          <FaRegFileAlt className="text-2xl text-primary" />
+          <p className="text-xl font-semibold">{number_of_recipes} Recipes</p>
+        </div>
         <div className="flex items-center gap-2 text-xl mb-4">
-          <FaThumbsUp className="text-primary" /> <span>{likes}</span>
+          <FaThumbsUp className="text-primary" /> <p>{likes} likes</p>
         </div>
         <button onClick={handleVeiwRecipes} className="btn btn-primary">
           View Recipes
