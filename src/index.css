@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container {
-  @apply max-w-7xl mx-auto px-4 lg:px-0;
+  @apply max-w-7xl mx-auto px-4 xl:px-0;
 }
 
 .active {
@@ -20,7 +20,7 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
-  @apply py-40;
+  @apply py-20 lg:py-40;
 }
 
 .offer__section {

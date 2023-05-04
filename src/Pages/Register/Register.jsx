@@ -11,6 +11,7 @@ const Register = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [successMsg, setSuccessMsg] = useState(null);
 
+  // Email Password Registration Function
   const handleRegistration = (event) => {
     event.preventDefault();
     const form = event.target;

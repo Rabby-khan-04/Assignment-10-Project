@@ -8,8 +8,11 @@ const SocialLogin = () => {
   const { googleLogin, githubLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Aftr Login Redirection Path
   const from = location?.state?.from?.pathname;
 
+  // Google Login Function
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
@@ -22,6 +25,7 @@ const SocialLogin = () => {
       });
   };
 
+  // Github Login Function
   const handleGithubLogin = () => {
     githubLogin()
       .then((result) => {

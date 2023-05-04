@@ -2,6 +2,7 @@ import React from "react";
 import loadingDots from "../../../../public/dots.json";
 import Lottie from "lottie-react";
 
+// Loading state Spinner
 const Spinner = () => {
   return (
     <div className="flex justify-center items-center h-[calc(100vh-68px)]">

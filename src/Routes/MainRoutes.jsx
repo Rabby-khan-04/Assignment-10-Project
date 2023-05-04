@@ -9,6 +9,7 @@ import { loadChefsDetails } from "../utilities/loader";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
 
+// Main Routs
 export const router = createBrowserRouter([
   {
     path: "/",

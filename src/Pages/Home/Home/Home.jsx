@@ -9,6 +9,7 @@ import MealOfMounth from "../MealOfMounth/MealOfMounth";
 const Home = () => {
   const chefs = useLoaderData();
 
+  // Chefs Card Slider Function
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -61,6 +62,7 @@ const Home = () => {
 
   const navigation = useNavigation();
 
+  // Loading State Condition
   if (navigation.state === "loading") {
     return <Spinner />;
   }
@@ -71,13 +73,13 @@ const Home = () => {
        */}
       <section className="banner__section">
         <div className="container">
-          <div className="max-w-3xl space-y-5">
-            <h2 className="text-6xl text-white font-bold leading-tight">
+          <div className="max-w-3xl space-y-5 text-center lg:text-left mx-auto lg:mx-0">
+            <h2 className="text-4xl md:text-6xl text-white font-bold leading-tight">
               Experience the Joy of{" "}
               <span className="text-primary">Italian Cuisine:</span> Start
               Cooking Today
             </h2>
-            <p className="text-base text-white max-w-xl">
+            <p className="text-base text-white max-w-xl mx-auto lg:mx-0">
               Discover authentic Italian flavors with our collection of
               delicious recipes. From pasta to pizza, our easy-to-follow
               instructions will help you create mouth-watering meals in no time.
@@ -93,7 +95,7 @@ const Home = () => {
        */}
 
       {/* Chefs Sections Start */}
-      <section className="py-20">
+      <section className="py-16 lg:py-20">
         <div className="container">
           <div className="text-center">
             <h2 className="text-4xl font-bold uppercase">Our best chefs</h2>
@@ -127,7 +129,7 @@ const Home = () => {
               </h3>
               <div className="h-0.5 w-20 bg-primary"></div>
             </div>
-            <h2 className="text-5xl uppercase font-bold leading-tight mb-5">
+            <h2 className="text-4xl md:text-5xl uppercase font-bold leading-tight mb-5">
               Buy our recipe book now and receive a generous{" "}
               <span className="text-primary">30% discount</span> today!
             </h2>

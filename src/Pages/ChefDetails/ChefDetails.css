@@ -3,5 +3,5 @@
   background-position: center;
   background-size: contain;
   background-repeat: repeat;
-  @apply py-28;
+  @apply py-14 lg:py-28;
 }

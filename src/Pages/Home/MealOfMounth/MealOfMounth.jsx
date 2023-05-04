@@ -11,8 +11,10 @@ import mealImg9 from "../../../assets/images/mm_9.jpg";
 import mealImg10 from "../../../assets/images/mm_10.jpg";
 import mealImg11 from "../../../assets/images/mm_11.jpg";
 import mealImg12 from "../../../assets/images/mm_12.jpg";
+import LazyLoad from "react-lazy-load";
 
 const MealOfMounth = () => {
+  // Image Array
   const mealsImages = [
     mealImg1,
     mealImg2,
@@ -29,14 +31,16 @@ const MealOfMounth = () => {
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-7 pt-12">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 pt-12">
       {mealsImages.map((img, index) => (
-        <img
-          src={img}
-          alt=""
-          key={index}
-          className="brightness-100 hover:brightness-50 duration-300"
-        />
+        <LazyLoad offset={300}>
+          <img
+            src={img}
+            alt=""
+            key={index}
+            className="brightness-100 hover:brightness-50 duration-300"
+          />
+        </LazyLoad>
       ))}
     </div>
   );

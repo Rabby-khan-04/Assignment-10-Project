@@ -3,14 +3,14 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { addToDB, getItemFromDB } from "../../../utilities/DBHandler";
+import LazyLoad from "react-lazy-load";
 
 const RecipesCard = ({ recipe }) => {
   const { id, name, rating, image, ingredients, cooking_method } = recipe;
   const [favourite, setFavourite] = useState(true);
   const [favouriteItem, setFavouriteItem] = useState([]);
 
-  console.log(favourite);
-
+  // Add To Favourite Button
   const handleAddToFav = (id) => {
     addToDB(id);
     const storedItem = getItemFromDB();
@@ -28,11 +28,13 @@ const RecipesCard = ({ recipe }) => {
 
   return (
     <div className="group border border-[#a1a1a149] p-4 rounded-lg">
-      <img
-        src={image}
-        className="mb-7 brightness-100 group-hover:brightness-50 transition-all duration-300 rounded-t-lg border border-[#a1a1a149]"
-        alt=""
-      />
+      <LazyLoad offset={200}>
+        <img
+          src={image}
+          className="mb-7 brightness-100 group-hover:brightness-50 transition-all duration-300 rounded-t-lg border border-[#a1a1a149]"
+          alt=""
+        />
+      </LazyLoad>
       <div className="">
         <h2 className="text-2xl font-bold uppercase text-white mb-5">{name}</h2>
         <p className="text-xl mb-4">

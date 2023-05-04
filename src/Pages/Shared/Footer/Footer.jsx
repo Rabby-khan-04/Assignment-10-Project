@@ -7,11 +7,10 @@ import {
   FaRegEnvelope,
   FaTwitter,
 } from "react-icons/fa";
-import { IoMdArrowDropleft } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className="container grid grid-cols-4 gap-6 py-12">
+    <div className="container grid md:grid-cols-2 lg:grid-cols-4 gap-6 py-12">
       <div className="space-y-4">
         <h2>
           <Link to="/" className="text-white font-bold text-3xl">
@@ -31,10 +30,8 @@ const Footer = () => {
         </p>
       </div>
       <div className="space-y-4">
-        <div className="flex items-center">
-          <IoMdArrowDropleft className="text-2xl text-primary" />
-          <h3 className="text-2xl font-bold">Contact Us</h3>
-        </div>
+        <h3 className="text-2xl font-bold">Contact Us</h3>
+
         <div className="h-0.5 w-20 bg-primary mt-3 mb-5"></div>
         <div className="hover:text-primary">
           <div className="flex items-center gap-3">
@@ -52,10 +49,7 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <div className="flex items-center">
-          <IoMdArrowDropleft className="text-2xl text-primary" />
-          <h3 className="text-2xl font-bold">Quick Links</h3>
-        </div>
+        <h3 className="text-2xl font-bold">Quick Links</h3>
         <div className="h-0.5 w-20 bg-primary mt-3 mb-5"></div>
         <ul className="space-y-2">
           <li>Home</li>
@@ -65,10 +59,7 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <div className="flex items-center">
-          <IoMdArrowDropleft className="text-2xl text-primary" />
-          <h3 className="text-2xl font-bold">Social Links</h3>
-        </div>
+        <h3 className="text-2xl font-bold">Social Links</h3>
         <div className="h-0.5 w-20 bg-primary mt-3 mb-5"></div>
         <div className="flex items-center gap-4">
           <FaFacebookF className="text-xl text-white hover:text-primary" />

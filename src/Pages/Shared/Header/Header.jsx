@@ -8,10 +8,12 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  // Header Login Button handler
   const goToLoginPage = () => {
     navigate("/login");
   };
 
+  // Logout Handler
   const handleLogout = () => {
     logOut();
   };
