@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import ChefDetails from "../Pages/ChefDetails/ChefDetails";
 import { loadChefsDetails } from "../utilities/loader";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/recipes/:id",
-        element: <ChefDetails />,
+        element: (
+          <PrivateRoutes>
+            <ChefDetails />
+          </PrivateRoutes>
+        ),
         loader: ({ params }) => loadChefsDetails(params.id),
       },
     ],

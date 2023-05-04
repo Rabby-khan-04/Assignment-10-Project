@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
+  const { logOut, user } = useContext(AuthContext);
+  console.log(user);
+
   const navigate = useNavigate();
 
   const goToLoginPage = () => {
     navigate("/login");
+  };
+
+  const handleLogout = () => {
+    logOut();
   };
 
   return (
@@ -39,11 +48,32 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end space-x-4">
+        <div>
+          {user?.photoURL ? (
+            <img
+              src={user?.photoURL}
+              className="h-10 w-10 rounded-full"
+              data-tooltip-id="user__name__tooltip"
+              data-tooltip-content={user?.displayName}
+              data-tooltip-place="top"
+              alt=""
+            />
+          ) : (
+            <FaUserCircle className="text-4xl" />
+          )}
+        </div>
+
         <div className="hidden lg:block">
-          <button onClick={goToLoginPage} className="btn btn-primary">
-            Login Now
-          </button>
+          {user ? (
+            <button onClick={handleLogout} className="btn btn-primary">
+              Logout
+            </button>
+          ) : (
+            <button onClick={goToLoginPage} className="btn btn-primary">
+              Login Now
+            </button>
+          )}
         </div>
       </div>
       <div className="dropdown dropdown-end">
@@ -85,9 +115,18 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="btn btn-primary block" to="/login">
-              Login
-            </NavLink>
+            {user ? (
+              <button onClick={handleLogout} className="btn btn-primary w-full">
+                Logout
+              </button>
+            ) : (
+              <button
+                onClick={goToLoginPage}
+                className="btn btn-primary w-full"
+              >
+                Login Now
+              </button>
+            )}
           </li>
         </ul>
       </div>
