@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import loginImg from "../../assets/images/login-imag.jpg";
-import googleIcon from "../../assets/icons/google.svg";
-import githubIcon from "../../assets/icons/github.svg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
   const { auth, ragistration } = useContext(AuthContext);
@@ -52,22 +51,9 @@ const Register = () => {
               </Link>
             </h2>
             <p className="text-xl text-gray-600 text-center">Welcome!</p>
-            <button className="flex items-center justify-center w-full mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
-              <div className="px-4 py-3">
-                <img src={googleIcon} className="h-10" alt="" />
-              </div>
-              <span className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">
-                Sign in with Google
-              </span>
-            </button>
-            <button className="flex items-center justify-center w-full mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
-              <div className="px-4 py-3">
-                <img src={githubIcon} className="h-10" alt="" />
-              </div>
-              <span className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">
-                Sign in with Github
-              </span>
-            </button>
+            <div>
+              <SocialLogin />
+            </div>
             <div className="mt-4 flex items-center justify-between">
               <span className="border-b w-1/5 lg:w-1/4"></span>
               <a
