@@ -1,0 +1,6 @@
+.compare__table,
+.compare__table td,
+.compare__table th,
+.compare__table tr {
+  @apply border border-primary p-3;
+}
