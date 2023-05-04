@@ -22,3 +22,25 @@
   background-blend-mode: multiply;
   @apply py-40;
 }
+
+.offer__section {
+  background: url("./assets/images/bg-offer.jpg"), rgba(0, 0, 0, 0.7);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+
+.offer_top {
+  background: url("./assets/images/brush-bottom.png");
+  background-position: center;
+  background-size: cover;
+  height: 50px;
+}
+.offer_bottom {
+  background: url("./assets/images/brush-top.png");
+  background-position: center;
+  background-size: cover;
+  height: 50px;
+}

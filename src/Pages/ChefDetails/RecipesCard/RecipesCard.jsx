@@ -6,8 +6,10 @@ import { addToDB, getItemFromDB } from "../../../utilities/DBHandler";
 
 const RecipesCard = ({ recipe }) => {
   const { id, name, rating, image, ingredients, cooking_method } = recipe;
-  const [favourite, setFavourite] = useState(false);
+  const [favourite, setFavourite] = useState(true);
   const [favouriteItem, setFavouriteItem] = useState([]);
+
+  console.log(favourite);
 
   const handleAddToFav = (id) => {
     addToDB(id);
@@ -50,15 +52,14 @@ const RecipesCard = ({ recipe }) => {
             value={rating}
             readOnly
           />
-          {favourite ? (
-            <button disabled={favourite}>
+
+          <button disabled={favourite} onClick={() => handleAddToFav(id)}>
+            {favourite ? (
               <FaHeart className="text-xl text-primary" />
-            </button>
-          ) : (
-            <button onClick={() => handleAddToFav(id)}>
+            ) : (
               <FaRegHeart className="text-xl text-primary" />
-            </button>
-          )}
+            )}
+          </button>
         </div>
       </div>
     </div>

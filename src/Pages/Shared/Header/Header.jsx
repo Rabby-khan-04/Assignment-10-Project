@@ -5,7 +5,6 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const { logOut, user } = useContext(AuthContext);
-  console.log(user);
 
   const navigate = useNavigate();
 

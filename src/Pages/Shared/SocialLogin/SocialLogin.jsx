@@ -2,15 +2,20 @@ import React, { useContext } from "react";
 import googleIcon from "../../../assets/icons/google.svg";
 import githubIcon from "../../../assets/icons/github.svg";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const { googleLogin, githubLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname;
 
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -22,6 +27,7 @@ const SocialLogin = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);

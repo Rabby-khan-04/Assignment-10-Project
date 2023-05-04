@@ -4,6 +4,7 @@ import ChefCard from "../ChefCard/ChefCard";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import Spinner from "../../Shared/Spinner/Spinner";
+import MealOfMounth from "../MealOfMounth/MealOfMounth";
 
 const Home = () => {
   const chefs = useLoaderData();
@@ -82,7 +83,9 @@ const Home = () => {
               instructions will help you create mouth-watering meals in no time.
               Buon appetito!
             </p>
-            <button className="btn btn-primary">Login Now</button>
+            <button className="btn btn-primary text-xl font-bold">
+              View Recipes
+            </button>
           </div>
         </div>
       </section>
@@ -104,7 +107,7 @@ const Home = () => {
               recipes and find new ideas for your own culinary adventures.
             </p>
           </div>
-          <div ref={sliderRef} className="keen-slider pt-12">
+          <div ref={sliderRef} className="keen-slider pt-16">
             {chefs.map((chef) => (
               <ChefCard chef={chef} key={chef.id} />
             ))}
@@ -112,6 +115,45 @@ const Home = () => {
         </div>
       </section>
       {/* Chefs Sections Ends */}
+
+      {/* Special Offer Section Starts */}
+      <section className="offer__section">
+        <div className="offer_top"></div>
+        <div className="container py-10">
+          <div className="max-w-5xl">
+            <div className="flex items-center gap-4 mb-5">
+              <h3 className="text-xl text-primary font-medium uppercase">
+                Special Offer
+              </h3>
+              <div className="h-0.5 w-20 bg-primary"></div>
+            </div>
+            <h2 className="text-5xl uppercase font-bold leading-tight mb-5">
+              Buy our recipe book now and receive a generous{" "}
+              <span className="text-primary">30% discount</span> today!
+            </h2>
+            <button className="btn btn-primary text-xl font-bold">
+              Buy Now
+            </button>
+          </div>
+        </div>
+        <div className="offer_bottom"></div>
+      </section>
+      {/* Special Offer Section Ends */}
+
+      {/* Meal Of the Mounth Section Starts */}
+      <section className="py-20">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-semibold">
+              Share Your Meals on Instagram with{" "}
+              <span className="text-primary">#rioReview</span> & We Will Reward
+              the <span className="text-primary">Meal of the Month!</span>
+            </h2>
+          </div>
+          <MealOfMounth />
+        </div>
+      </section>
+      {/* Meal Of the Mounth Section Ends */}
     </>
   );
 };

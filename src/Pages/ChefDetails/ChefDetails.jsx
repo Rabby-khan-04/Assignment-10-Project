@@ -27,7 +27,7 @@ const ChefDetails = () => {
   const navigate = useNavigate();
 
   const handleNavigation = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   const navigation = useNavigation();

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import loginImg from "../../assets/images/login-imag.jpg";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -8,6 +8,9 @@ import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Register = () => {
   const { auth, ragistration } = useContext(AuthContext);
 
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(null);
+
   const handleRegistration = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,9 +18,21 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
+    setErrorMsg(null);
+    setSuccessMsg(null);
+
+    if (password.length < 6) {
+      setErrorMsg("Password Must Be More Then 6 Chrecter");
+      return;
+    } else if (email === "" || password === "") {
+      setErrorMsg("Must Fill Email & Password Field");
+      return;
+    }
+
     ragistration(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        setSuccessMsg("User Created Sucessfully");
         updateProfile(auth.currentUser, { displayName: name, photoURL: photo })
           .then(() => {
             console.log("Profile Updated");
@@ -29,7 +44,7 @@ const Register = () => {
         form.reset();
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMsg(error.message);
       });
   };
 
@@ -73,7 +88,6 @@ const Register = () => {
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="text"
                   name="name"
-                  required
                 />
               </div>
               <div className="mt-4">
@@ -84,7 +98,6 @@ const Register = () => {
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="email"
                   name="email"
-                  required
                 />
               </div>
               <div className="mt-4">
@@ -97,7 +110,6 @@ const Register = () => {
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="password"
                   name="password"
-                  required
                 />
               </div>
               <div className="mt-4">
@@ -108,7 +120,6 @@ const Register = () => {
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="url"
                   name="photo"
-                  required
                 />
               </div>
               <div className="mt-8">
@@ -120,6 +131,29 @@ const Register = () => {
                 </button>
               </div>
             </form>
+            {successMsg ? (
+              <div className="mt-4">
+                <p
+                  className={`text-base ${
+                    errorMsg ? "text-error" : successMsg ? "text-success" : ""
+                  } font-semibold`}
+                >
+                  {errorMsg ? errorMsg : successMsg ? successMsg : ""}
+                </p>
+              </div>
+            ) : errorMsg ? (
+              <div className="mt-4">
+                <p
+                  className={`text-base capitalize ${
+                    errorMsg ? "text-error" : successMsg ? "text-success" : ""
+                  } font-semibold`}
+                >
+                  {errorMsg ? errorMsg : successMsg ? successMsg : ""}
+                </p>
+              </div>
+            ) : (
+              <div className="hidden"></div>
+            )}
             <div className="mt-4 flex items-center justify-between">
               <span className="border-b w-1/5 md:w-1/4"></span>
               <Link
