@@ -23,7 +23,7 @@ const Blog = () => {
             )}
           </Pdf>
         </div>
-        <div className="space-y-8 p-4" ref={ref}>
+        <div className="space-y-8 bg-black p-4" ref={ref}>
           <div className="space-y-3">
             <h2 className="text-2xl font-semibold">
               <span className="font-bold text-primary">Q : </span>What is the
