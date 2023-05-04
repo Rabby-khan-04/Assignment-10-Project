@@ -19,7 +19,8 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/chefs"),
+        loader: () =>
+          fetch("https://recipe-riot-server-rabby-khan-04.vercel.app/chefs"),
       },
       {
         path: "blog",
