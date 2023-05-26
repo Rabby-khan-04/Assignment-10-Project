@@ -12,7 +12,7 @@ const Blog = () => {
           <h2 className="text-white font-bold text-3xl">
             Recipe<span className="text-primary">Riot</span> Blog
           </h2>
-          <Pdf targetRef={ref} filename="code-example.pdf">
+          <Pdf targetRef={ref} filename="blog.pdf">
             {({ toPdf }) => (
               <button
                 onClick={toPdf}
